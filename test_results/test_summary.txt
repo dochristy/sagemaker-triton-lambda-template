@@ -1,0 +1,39 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.2, pytest-8.3.4, pluggy-1.5.0 -- /usr/local/Caskroom/miniconda/base/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/Chris-Folder/claude
+plugins: cov-6.0.0, anyio-4.8.0, mock-3.14.0, xdist-3.6.1
+collecting ... collected 9 items
+
+test_lambda_function.py::test_get_warp_details PASSED                    [ 11%]
+test_lambda_function.py::test_preprocess PASSED                          [ 22%]
+test_lambda_function.py::test_postprocess PASSED                         [ 33%]
+test_lambda_function.py::test_lambda_handler_with_sagemaker PASSED       [ 44%]
+test_lambda_function.py::test_lambda_handler_missing_endpoint PASSED     [ 55%]
+test_lambda_function.py::test_lambda_handler_error PASSED                [ 66%]
+test_lambda_function_moto.py::test_s3_integration PASSED                 [ 77%]
+test_lambda_function_moto.py::test_dynamodb_integration PASSED           [ 88%]
+test_lambda_function_moto.py::test_full_aws_integration PASSED           [100%]
+
+=============================== warnings summary ===============================
+test_lambda_function_moto.py::test_s3_integration
+test_lambda_function_moto.py::test_s3_integration
+test_lambda_function_moto.py::test_dynamodb_integration
+test_lambda_function_moto.py::test_full_aws_integration
+test_lambda_function_moto.py::test_full_aws_integration
+test_lambda_function_moto.py::test_full_aws_integration
+  /usr/local/Caskroom/miniconda/base/lib/python3.12/site-packages/botocore/auth.py:424: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    datetime_now = datetime.datetime.utcnow()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+
+---------- coverage: platform darwin, python 3.12.2-final-0 ----------
+Name                           Stmts   Miss  Cover
+--------------------------------------------------
+lambda_function.py                35      2    94%
+test_lambda_function.py           64      0   100%
+test_lambda_function_moto.py      49      0   100%
+--------------------------------------------------
+TOTAL                            148      2    99%
+
+======================== 9 passed, 6 warnings in 6.53s =========================
