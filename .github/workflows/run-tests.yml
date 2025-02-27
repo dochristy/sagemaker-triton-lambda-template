@@ -27,12 +27,10 @@
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Check moto version and available modules
         run: |
-          python -c "import moto; print('Moto version:', moto.__version__); print('Available modules:', 
-  dir(moto))"
+          python -c "import moto; print('Moto version:', moto.__version__); print('Available modules:', dir(moto))"
       - name: Update moto tests
         run: |
-          sed -i 's/from moto import mock_aws/from moto.core import mock_aws/g' 
-  test_lambda_function_moto.py || true
+          sed -i 's/from moto import mock_aws/from moto.core import mock_aws/g' test_lambda_function_moto.py || true
       - name: Test with pytest
         env:
           AWS_DEFAULT_REGION: us-east-1
