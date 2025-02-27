@@ -25,6 +25,11 @@
           pip install pytest pytest-cov moto boto3 pytest-mock
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Test with pytest
+        env:
+          AWS_DEFAULT_REGION: us-east-1
+          AWS_REGION: us-east-1
+          AWS_ACCESS_KEY_ID: fake-key
+          AWS_SECRET_ACCESS_KEY: fake-secret
         run: |
           pytest test_lambda_function.py -v
           pytest test_lambda_function_moto.py -v
