@@ -26,12 +26,5 @@
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Test with pytest
         run: |
-          mkdir -p test_results
-          pytest test_lambda_function.py -v --junitxml=test_results/unit_test_results.xml
-          pytest test_lambda_function_moto.py -v --junitxml=test_results/moto_test_results.xml
-      - name: Upload test results
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-results
-          path: test_results/
-        if: always()  # Upload test results even if tests fail
+          pytest test_lambda_function.py -v
+          pytest test_lambda_function_moto.py -v
